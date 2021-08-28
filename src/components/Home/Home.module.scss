@@ -4,9 +4,27 @@
 }
 
 .searchLink {
-    display: block;
+    display: inline-block;
     margin: 30px 30px;
     text-decoration: none;
     color: #000;
     font-size: 20px;
+}
+
+.weatherBox {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 166px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .logo {
+        width: 250px;
+        height: 250px;
+    }
+    .temp {
+        font-size: 34px;
+        font-weight: 600;
+    }
 }

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { api } from '../../api/currentWeather'
+import { api } from '../../api/api'
 import style from './SearchWeather.module.scss'
 
 const SearchWeather = () => {
