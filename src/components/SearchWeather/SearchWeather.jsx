@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import { api } from '../../api/currentWeather'
 import style from './SearchWeather.module.scss'
 
@@ -40,6 +41,9 @@ const SearchWeather = () => {
                     </div>
                 </>
             ) : (''))}
+            <div className={style.back}>
+                <NavLink className={style.backLink} to='/'>Back to the main</NavLink>
+            </div>
         </>
     )
 }

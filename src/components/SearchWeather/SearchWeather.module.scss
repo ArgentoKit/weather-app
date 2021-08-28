@@ -20,7 +20,7 @@
 
 .weatherBox {
     width: 100%;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 200px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,5 +45,24 @@
     .weather {
         margin-top: 5px;
         font-size: 35px;
+    }
+}
+
+.back {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    height: 100px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 500;
+    background-color: rgb(236, 236, 236);
+
+    .backLink {
+        text-decoration: none;
+        color: #000;
     }
 }
