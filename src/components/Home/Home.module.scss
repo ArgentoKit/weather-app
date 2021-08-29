@@ -28,3 +28,11 @@
         font-weight: 600;
     }
 }
+
+.warning {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 166px);
+    font-size: 26px;
+}

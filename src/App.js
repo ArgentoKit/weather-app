@@ -12,7 +12,8 @@ const App = () => {
   const [weather, setWeather] = useState({
     icon: '',
     temp: '',
-    city: ''
+    city: '',
+    description: ''
   })
 
   const fetchWeather = async () => {

@@ -22,7 +22,7 @@ const SearchWeather = () => {
     })
     var today = new Date().getDay()
     const search = async e => {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter' || e.type === 'click') {
             await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${geocodingApi.key}`)
                 .then(res => res.data)
                 .then(result => {
@@ -32,6 +32,7 @@ const SearchWeather = () => {
                         long: result.results[0].geometry.location.lng
                     })
                 })
+            console.log(e)
         }
     }
     const getWeather = async () => {
@@ -64,6 +65,8 @@ const SearchWeather = () => {
                     onChange={e => setQuery(e.target.value)}
                     value={query}
                     onKeyPress={search} />
+                <button className={style.searchButton}
+                        onClick={search}>Search</button>
             </div>
             {console.log(weather)}
             {((coord.lat !== 0 && coord.long !== 0) ? (
