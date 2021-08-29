@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { api } from './api/api';
 import Home from './components/Home/Home';
@@ -44,6 +45,9 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
+        <Helmet>
+          <title>Weather App | Home</title>
+        </Helmet>
         <Switch>
           <Route exact path='/' render={() => <Home weather={weather}/>} />
           <Route path='/search' component={SearchWeather} />

@@ -1,4 +1,11 @@
-export const changeBgColor = (temp, temperatures, bgColor, setBgColor) => {
+const temperatures = [
+    { temp: -10, step_r: 0, step_g: 0, step_b: 0 },
+    { temp: 0, step_r: 23, step_g: 0, step_b: 0 },
+    { temp: 10, step_r: 2.5, step_g: 0.8, step_b: 25.5 },
+    { temp: 30, step_r: 0, step_g: 5.35, step_b: 0 },
+]
+
+export const changeBgColor = (temp, bgColor, setBgColor) => {
     if (temp >= temperatures[3].temp) {
         setBgColor({
             r: 255,

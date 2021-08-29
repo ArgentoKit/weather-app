@@ -1,3 +1,4 @@
+
 .searchBox {
     display: flex;
     justify-content: center;
@@ -24,27 +25,67 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ff8c00;
 
-    .weatherContent{
+    .weatherContent {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
         align-items: center;
-        padding: 100px;
-        background-color: rgba(255, 255, 255, 0.8);
-        border-radius: 12px;
+        flex-direction: column;
+        width: 100%;
     }
-    .location {
-        font-size: 62px;
+
+    .today {
+        display: flex;
+        align-items: center;
+        min-width: 420px;
+        padding: 0 20px;
+        margin-bottom: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+        font-size: 24px;
+
+        .todayGroup {
+            display: flex;
+            flex-direction: column;
+            margin-right: 30px;
+        }
+
+        .currentDay {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .city {
+            font-size: 26px;
+            font-weight: 600;
+        }
+        .weather {
+            display: flex;
+            align-items: center;
+        }
     }
-    .temp {
-        margin-top: 30px;
-        font-size: 45px;
-    }
-    .weather {
+
+    .future {
+        display: flex;
+        align-items: center;
+        min-width: 420px;
         margin-top: 5px;
-        font-size: 35px;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+
+        .nextDate {
+            min-width: 120px;
+            margin-right: 15px;
+        }
+
+        .nextIcon {
+            width: 50px;
+        }
+        
+        .dayNight {
+            margin-right: 25px;
+        }
     }
 }
 
