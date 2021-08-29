@@ -28,9 +28,9 @@ const App = () => {
           ...weather,
           icon: res.data.weather[0].icon,
           temp: Math.round(res.data.main.temp),
-          city: res.data.name
+          city: res.data.name,
+          description: res.data.weather[0].description
         })
-        console.log(res.data)
       }
     } catch (err) {
       console.error(err)
