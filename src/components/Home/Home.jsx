@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { changeBgColor } from '../../common/changeBgColor'
+import SliderBar from '../SliderBar/SliderBar'
 import style from './Home.module.scss'
 
-const Home = ({ weather }) => {
+const Home = ({ weather, setWeather }) => {
     const [bgColor, setBgColor] = useState({
         r: 255,
         g: 255,
@@ -17,7 +18,9 @@ const Home = ({ weather }) => {
     }, [weather.temp])
     return (
         <div className={style.home} style={{ backgroundColor: `rgb(${bgColor.r}, ${bgColor.g}, ${bgColor.b})` }}>
-            <NavLink className={style.searchLink} to='/search'>Search City</NavLink>
+            <div className={style.header}>
+                <NavLink className={style.searchLink} to='/search'>Search City Page</NavLink>
+            </div>
             {weather.temp !== ''
                 ? <div className={style.weatherBox}>
                     {weather.icon !== '' ? <img className={style.logo}
@@ -25,6 +28,7 @@ const Home = ({ weather }) => {
                         alt={`${weather.description}`} />
                         : ''}
                     <span className={style.temp}>{weather.temp}°c</span>
+                    <SliderBar weather={weather} setWeather={setWeather}/>
                 </div>
                 : <div className={style.warning}>Allow access to your location to display the weather</div>}
         </div>

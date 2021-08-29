@@ -50,7 +50,7 @@ const App = () => {
           <title>Weather App | Home</title>
         </Helmet>
         <Switch>
-          <Route exact path='/' render={() => <Home weather={weather}/>} />
+          <Route exact path='/' render={() => <Home weather={weather} setWeather={setWeather}/>} />
           <Route path='/search' component={SearchWeather} />
         </Switch>
       </BrowserRouter>

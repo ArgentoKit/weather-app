@@ -68,7 +68,6 @@ const SearchWeather = () => {
                 <button className={style.searchButton}
                         onClick={search}>Search</button>
             </div>
-            {console.log(weather)}
             {((coord.lat !== 0 && coord.long !== 0) ? (
                 <>
                     <div className={style.weatherBox} style={{ backgroundColor: `rgb(${bgColor.r}, ${bgColor.g}, ${bgColor.b})` }}>
@@ -113,7 +112,7 @@ const SearchWeather = () => {
                         </div>
                     </div>
                 </>
-            ) : (''))}
+            ) : <div className={style.warning}>Enter the city name in the search</div>)}
             <div className={style.back}>
                 <NavLink className={style.backLink} to='/'>Back to the main</NavLink>
             </div>
