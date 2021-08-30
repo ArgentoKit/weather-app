@@ -25,6 +25,9 @@ const SearchWeather = () => {
         if (e.key === 'Enter' || e.type === 'click') {
             await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${geocodingApi.key}`)
                 .then(res => res.data)
+                .catch(function (error) {
+                    console.log(error);
+                  })
                 .then(result => {
                     setCoord({
                         ...coord,
@@ -32,7 +35,6 @@ const SearchWeather = () => {
                         long: result.results[0].geometry.location.lng
                     })
                 })
-            console.log(e)
         }
     }
     const getWeather = async () => {
