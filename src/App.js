@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { api } from './api/api';
+import AllowGeoLocation from './components/allowGeoLocation/AllowGeoLocation';
 import Home from './components/Home/Home';
 import SearchWeather from './components/SearchWeather/SearchWeather';
 
@@ -15,13 +16,20 @@ const App = () => {
     city: '',
     description: ''
   })
+  const [modalActive, setModalActive] = useState(false)
 
   const fetchWeather = async () => {
-    try {
-      window.navigator.geolocation.getCurrentPosition(function (position) {
+    const successCallback = (position) => {
         setLatitude(position.coords.latitude)
         setLongitude(position.coords.longitude)
-      })
+        console.log(position)
+    }
+    const errorCallback = (error) => {
+      console.log(error)
+      setModalActive(true)
+    }
+    try {
+      navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
       if((latitude && longitude) !== 0) {
         const res = await axios.get(
           `${api.base}weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${api.key}`
@@ -53,6 +61,9 @@ const App = () => {
           <Route exact path='/' render={() => <Home weather={weather} setWeather={setWeather}/>} />
           <Route path='/search' component={SearchWeather} />
         </Switch>
+        <AllowGeoLocation active={modalActive} 
+                          setActive={setModalActive} 
+                          fetch={fetchWeather}/>
       </BrowserRouter>
     </>
   )

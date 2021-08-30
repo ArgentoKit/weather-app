@@ -30,7 +30,7 @@ const Home = ({ weather, setWeather }) => {
                     <span className={style.temp}>{weather.temp}°c</span>
                     <SliderBar weather={weather} setWeather={setWeather}/>
                 </div>
-                : <div className={style.warning}>Allow access to your location to display the weather</div>}
+                : ''}
         </div>
     )
 }

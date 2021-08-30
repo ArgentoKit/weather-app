@@ -2,11 +2,14 @@ import cn from 'classnames'
 import React from 'react'
 import style from './AllowGeoLocation.module.scss'
 
-const AllowGeoLocation = ({active, setActive}) => {
+const AllowGeoLocation = ({active, setActive, fetch}) => {
     return (
-        <div className={cn('modal', {'active': active})} onClick={() => setActive(false)}>
+        <div className={cn(style.modal, {[style.active]: active})} onClick={() => setActive(false)}>
             <div className={style.modal__content} onClick={e => e.stopPropagation()}>
-                {console.log('Active: ', active)}
+                <h6 className={style.modalTitle}>Allow access to your location to display the weather</h6>
+                <div className={style.buttonBox}>
+                    <button onClick={() => setActive(false)} className={style.modalAgree}>Ok</button>
+                </div>
             </div>
         </div>
     )

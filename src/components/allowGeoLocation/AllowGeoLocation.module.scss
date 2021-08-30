@@ -8,15 +8,51 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s;
 
     &__content {
         padding: 20px;
         border-radius: 12px;
         background-color: #fff;
+        display: flex;
+        flex-direction: column;
+
+        .modalTitle {
+            font-size: 22px;
+            margin: 10px 0 50px 0;
+        }
+
+        .buttonBox {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+
+            .modalAgree {
+                background-color: #8bc34a;
+                &:hover {
+                    background-color: darken($color: #8bc34a, $amount: 10%);
+                }
+            }
+
+            button {
+                width: 100%;
+                font-size: 18px;
+                font-weight: 600;
+                color: #fff;
+                padding: 15px 0;
+                border: 0;
+                border-radius: 8px;
+                transition: .3s ease;
+                cursor: pointer;
+            }
+        }
     }
 }
 
-.modal .active {
-    transform: scale(1);
+.active {
+    opacity: 1;
+    pointer-events: all;
 }
