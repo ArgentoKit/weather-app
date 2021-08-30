@@ -27,7 +27,7 @@ const SearchWeather = () => {
                 .then(res => res.data)
                 .catch(function (error) {
                     console.log(error);
-                  })
+                })
                 .then(result => {
                     setCoord({
                         ...coord,
@@ -61,14 +61,19 @@ const SearchWeather = () => {
                 <title>Weather App | Search</title>
             </Helmet>
             <div className={style.searchBox}>
-                <input className={style.search}
-                    type='text'
-                    placeholder='Search a city..'
-                    onChange={e => setQuery(e.target.value)}
-                    value={query}
-                    onKeyPress={search} />
-                <button className={style.searchButton}
+                <div className={style.back}>
+                    <NavLink className={style.backLink} to='/'>Back to the main</NavLink>
+                </div>
+                <div className={style.centerBox}>
+                    <input className={style.search}
+                        type='text'
+                        placeholder='Search a city..'
+                        onChange={e => setQuery(e.target.value)}
+                        value={query}
+                        onKeyPress={search} />
+                    <button className={style.searchButton}
                         onClick={search}>Search</button>
+                </div>
             </div>
             {((coord.lat !== 0 && coord.long !== 0) ? (
                 <>
@@ -115,9 +120,6 @@ const SearchWeather = () => {
                     </div>
                 </>
             ) : <div className={style.warning}>Enter the city name in the search</div>)}
-            <div className={style.back}>
-                <NavLink className={style.backLink} to='/'>Back to the main</NavLink>
-            </div>
         </>
     )
 }
